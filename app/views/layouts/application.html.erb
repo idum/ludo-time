@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LudoTime</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  </head>
+
+ <body class="overflow-hidden">
+    <div class="container-fluid vh-100 d-flex flex-column">
+      <div class="row">
+          <div class="col-12 p-0 m-0">
+              <%= render "header"%>
+          </div>
+      </div>
+      <div class="row flex-grow-1" style="min-height:0">
+          <div class="col-2 border m-0 h-100 d-flex flex-column">
+              <%= render "leftbar"%>
+          </div>
+          <div class="col-8 border h-100 d-flex flex-column justify-content-center text-center" >
+              <%= yield %>
+          </div>
+          <div class="col-2 border m-0 h-100 d-flex flex-column">
+            <%= render "rightbar"%>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-12 border p-0 m-0"> 
+            <%= render "footer"%>
+           </div> 
+      </div>
+    </div>
+  </body>
+</html>
