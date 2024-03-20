@@ -1,0 +1,21 @@
+<div class="navbar bg-body-secondary">
+    <div class="container-fluid">
+        <div class="navbar-brand d-inline-block mb-0 ms-2">
+            <%= image_tag "logo-black.png", size: 75 %>
+                <div class="d-inline-block align-middle ">
+                    <div class="fw-bold fst-italic fs-5"> Ludo-Time </div>
+                    <div class=" fst-italic fs-6"> Your Gaming Experience </div> 
+                </div>
+
+        </div>
+        <div class="me-5">
+            <% if user_signed_in?%>
+                <%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "navbar-nav fs-4 d-inline-block mb-0 me-2"%>
+                <%= link_to current_user.email, "#", class: "navbar-nav fs-4 d-inline-block mb-0 me-2"%>   
+            <% else %>
+                <%= link_to "Registrati", new_user_registration_path, class: "navbar-nav fs-4 d-inline-block mb-0 me-2"%>
+                <%= link_to "Login", new_user_session_path, class: "navbar-nav fs-4 d-inline-block mb-0 me-2"%>
+            <% end %>
+        </div>
+    </div>
+</div>
