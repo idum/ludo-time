@@ -1,8 +1,8 @@
 <%= form_with model: @event do |f| %>
     <%= f.label :title, "Denominazione evento"%>
-    <%= f.text_field :title%>
+    <%= f.text_field :title %>
     <%= f.label :location, "Indirizzo evento"%>
-    <%= f.text_field :location%>
+    <%= f.text_field :location %>
     <%= f.label :date, "Data"%>
     <%= f.date_field :date %>
     <%= f.submit "Submit", class: "btn btn-primary" %>
