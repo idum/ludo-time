@@ -1,10 +1,10 @@
 <div class="border align-content-justify">
     <p> Ciao <%= current_user.email %> </p>
+    <%= link_to "Nuovo evento", new_event_path, class: "btn btn-primary"%>
+
 
     <% if @events.size!=0%>
-        <ul><% @events.each do |event| %>
-            <li><%= event.title%></li>
-        <% end%> </ul>
+       <%= render @events%>
     <% else %>
         <p> Non ci sono eventi in lista </p>
     <% end %>
