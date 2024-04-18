@@ -1,13 +1,12 @@
 class EventsController < ApplicationController
     before_action :authenticate_user!
-    #before_action :set_event, only: [:show, :edit, :update, :destroy]
+    before_action :set_event, only: [:show, :edit, :update, :destroy]
     
     def index
         @events=Event.all 
     end
 
     def show
-        @event = Event.find(params[:id])        
 
     end
 
@@ -26,13 +25,12 @@ class EventsController < ApplicationController
     end
 
     def edit
-        @event = Event.find(params[:id])        
 
     end
        
      
     def update
-        @event = Event.find(params[:id])        
+            
         if @event.update(event_params)
             redirect_to events_path, notice: "Event was successfully updated."
         else
@@ -41,10 +39,12 @@ class EventsController < ApplicationController
     end
 
     def destroy
-        @event = Event.find(params[:id])        
 
         @event.destroy
-        redirect_to events_path, notice: "Event was successfully destroyed."
+        respond_to do |format|
+            format.html { redirect_to events_path, notice: "Event was successfully destroyed." }
+            format.turbo_stream
+        end
     end
 
     private
